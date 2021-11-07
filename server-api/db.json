@@ -1,0 +1,19 @@
+{
+  "contacts": [
+    {
+      "id": "de717c42-0ca6-4d71-8433-99a7ef3c6ff2",
+      "name": "girish khemani",
+      "email": "girish@gmail.com"
+    },
+    {
+      "id": "0c6e3e25-ce15-438b-9b98-238ba5cb8bf8",
+      "name": "dipesh",
+      "email": "dipesh@gmail.com"
+    },
+    {
+      "id": "684a0d59-a001-4d64-81ff-344964e3db62",
+      "name": "jignesh",
+      "email": "jigu@gmail.com"
+    }
+  ]
+}
