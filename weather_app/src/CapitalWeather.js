@@ -1,21 +1,16 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
-import { useNavigate } from "react-router-dom";
-function Country({ countryData, getCapitalDetails }) {
-  let navigateTo = useNavigate();
-  const goForCapital = () => {
-    getCapitalDetails();
-    navigateTo("/capital-weather");
-  };
+
+function CapitalWeather({ capitalWeather }) {
   return (
     <Container>
       <Box
@@ -31,61 +26,47 @@ function Country({ countryData, getCapitalDetails }) {
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               >
                 <TableCell component="th" scope="row">
-                  Country Name
-                </TableCell>
-                <TableCell align="right">{countryData.name}</TableCell>
-              </TableRow>
-              <TableRow
-                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-              >
-                <TableCell component="th" scope="row">
-                  Capital
-                </TableCell>
-                <TableCell align="right">{countryData.capital}</TableCell>
-              </TableRow>
-              <TableRow
-                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-              >
-                <TableCell component="th" scope="row">
-                  Population
-                </TableCell>
-                <TableCell align="right">{countryData.population}</TableCell>
-              </TableRow>
-              <TableRow
-                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-              >
-                <TableCell component="th" scope="row">
-                  Lattitude
-                </TableCell>
-                <TableCell align="right">{countryData.lat}</TableCell>
-              </TableRow>
-              <TableRow
-                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-              >
-                <TableCell component="th" scope="row">
-                  Longitude
-                </TableCell>
-                <TableCell align="right">{countryData.lng}</TableCell>
-              </TableRow>
-              <TableRow
-                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-              >
-                <TableCell component="th" scope="row">
-                  Flag
+                  Temperature
                 </TableCell>
                 <TableCell align="right">
-                  <img src={countryData.flag} />
+                  {capitalWeather.temperature}
                 </TableCell>
+              </TableRow>
+              <TableRow
+                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+              >
+                <TableCell component="th" scope="row">
+                  Weather Icons
+                </TableCell>
+                <TableCell align="right">
+                  <img src={capitalWeather.weather_icon} alt="Weather flag" />
+                </TableCell>
+              </TableRow>
+              <TableRow
+                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+              >
+                <TableCell component="th" scope="row">
+                  Wind Speed
+                </TableCell>
+                <TableCell align="right">{capitalWeather.wind_speed}</TableCell>
+              </TableRow>
+              <TableRow
+                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+              >
+                <TableCell component="th" scope="row">
+                  Precip
+                </TableCell>
+                <TableCell align="right">{capitalWeather.precip}</TableCell>
               </TableRow>
             </TableBody>
           </Table>
         </TableContainer>
       </Box>
-      <Button variant="contained" onClick={goForCapital}>
-        Capital Weather
-      </Button>
+      <Link to="/">
+        <Button variant="contained">Back to Home</Button>
+      </Link>
     </Container>
   );
 }
 
-export default Country;
+export default CapitalWeather;
