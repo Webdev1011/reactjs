@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { HompageProps } from "./App";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
@@ -16,6 +16,7 @@ const Homepage: React.FC<HompageProps> = ({
   return (
     <Box>
       <TextField
+        data-testid="country-input"
         helperText=""
         onChange={textChanged}
         id="demo-helper-text-misaligned"
@@ -23,6 +24,7 @@ const Homepage: React.FC<HompageProps> = ({
         value={country}
       />
       <Button
+        data-testid="country-btn"
         variant="contained"
         onClick={redirectToCountry}
         disabled={btnDisabled}

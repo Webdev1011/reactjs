@@ -1,17 +1,5 @@
-import React, {
-  ChangeEventHandler,
-  FC,
-  RefObject,
-  useRef,
-  useState,
-} from "react";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  useRoutes,
-} from "react-router-dom";
-import logo from "./logo.svg";
+import React, { ChangeEventHandler, useState } from "react";
+import { BrowserRouter as Router, useRoutes } from "react-router-dom";
 import "./App.css";
 import Homepage from "./Homepage";
 import Country from "./Country";

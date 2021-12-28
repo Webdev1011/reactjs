@@ -19,7 +19,7 @@ const Country: React.FC<CountryProps> = ({
   };
   return (
     <Box>
-      <TableContainer component={Paper}>
+      <TableContainer component={Paper} data-testid="country-table">
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableBody>
             <TableRow
