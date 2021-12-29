@@ -13,60 +13,52 @@ import { CapitalWeatherProps } from "./App";
 
 const CapitalWeather: React.FC<CapitalWeatherProps> = ({ capitalWeather }) => {
   return (
-    <Container>
-      <Box
-        sx={{
-          display: "flex",
-          alignItems: "center",
-        }}
-      >
-        <TableContainer component={Paper}>
-          <Table sx={{ minWidth: 650 }} aria-label="simple table">
-            <TableBody>
-              <TableRow
-                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-              >
-                <TableCell component="th" scope="row">
-                  Temperature
-                </TableCell>
-                <TableCell align="right">
-                  {capitalWeather.temperature}
-                </TableCell>
-              </TableRow>
-              <TableRow
-                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-              >
-                <TableCell component="th" scope="row">
-                  Weather Icons
-                </TableCell>
-                <TableCell align="right">
-                  <img src={capitalWeather.weather_icon} alt="Weather flag" />
-                </TableCell>
-              </TableRow>
-              <TableRow
-                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-              >
-                <TableCell component="th" scope="row">
-                  Wind Speed
-                </TableCell>
-                <TableCell align="right">{capitalWeather.wind_speed}</TableCell>
-              </TableRow>
-              <TableRow
-                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-              >
-                <TableCell component="th" scope="row">
-                  Precip
-                </TableCell>
-                <TableCell align="right">{capitalWeather.precip}</TableCell>
-              </TableRow>
-            </TableBody>
-          </Table>
-        </TableContainer>
-      </Box>
-      <Link to="/">
+    <Box>
+      <h1 data-testid="capital-weather-heading">Capital Weather Detail</h1>
+      <TableContainer component={Paper}>
+        <Table sx={{ minWidth: 650 }} aria-label="simple table">
+          <TableBody>
+            <TableRow
+              sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+            >
+              <TableCell component="th" scope="row">
+                Temperature
+              </TableCell>
+              <TableCell align="right">{capitalWeather.temperature}</TableCell>
+            </TableRow>
+            <TableRow
+              sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+            >
+              <TableCell component="th" scope="row">
+                Weather Icons
+              </TableCell>
+              <TableCell align="right">
+                <img src={capitalWeather.weather_icon} alt="Weather flag" />
+              </TableCell>
+            </TableRow>
+            <TableRow
+              sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+            >
+              <TableCell component="th" scope="row">
+                Wind Speed
+              </TableCell>
+              <TableCell align="right">{capitalWeather.wind_speed}</TableCell>
+            </TableRow>
+            <TableRow
+              sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+            >
+              <TableCell component="th" scope="row">
+                Precip
+              </TableCell>
+              <TableCell align="right">{capitalWeather.precip}</TableCell>
+            </TableRow>
+          </TableBody>
+        </Table>
+      </TableContainer>
+      <Link to="/" style={{ textDecoration: "none" }}>
         <Button variant="contained">Back to Home</Button>
       </Link>
-    </Container>
+    </Box>
   );
 };
 

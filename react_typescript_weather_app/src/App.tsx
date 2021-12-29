@@ -29,9 +29,9 @@ const AppWrapper: React.FC<AppWrapperProps> = ({ setShowLoading }) => {
   const [countryData, setCountryData] = useState<typeof objCountry>(objCountry);
   const [capitalWeather, setCapitalWeather] =
     useState<typeof objCapital>(objCapital);
-  function getCountryDetails(): void {
+  const getCountryDetails = async () => {
     setShowLoading(true);
-    fetch(`https://restcountries.com/v3.1/name/${country}`)
+    await fetch(`https://restcountries.com/v3.1/name/${country}`)
       .then((res) => res.json())
       .then((json) => {
         json.map((data: any, key: any) => {
@@ -51,11 +51,11 @@ const AppWrapper: React.FC<AppWrapperProps> = ({ setShowLoading }) => {
         alert("Write full country name.");
         setShowLoading(false);
       });
-  }
-  function getCapitalDetails(): void {
+  };
+  const getCapitalDetails = async () => {
     setShowLoading(true);
     const capital_name = countryData["capital"];
-    fetch(
+    await fetch(
       `http://api.weatherstack.com/current?access_key=c63901e6269dcb53df1b52bcf39d5474&query=${capital_name}`
     )
       .then((res) => res.json())
@@ -69,7 +69,7 @@ const AppWrapper: React.FC<AppWrapperProps> = ({ setShowLoading }) => {
         setShowLoading(false);
         navigate("/capital-weather");
       });
-  }
+  };
   const textChanged = (e: React.ChangeEvent<HTMLInputElement>) => {
     setCountry(e.target.value);
     if (e.target.value) {

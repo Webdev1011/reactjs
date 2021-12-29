@@ -14,11 +14,12 @@ const Country: React.FC<CountryProps> = ({
   countryData,
   getCapitalDetails,
 }) => {
-  const fetchCapitalDetails = () => {
+  const fetchCapitalDetails = async () => {
     getCapitalDetails();
   };
   return (
     <Box>
+      <h1 data-testid="country-details">Country Details</h1>
       <TableContainer component={Paper} data-testid="country-table">
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableBody>
@@ -75,10 +76,18 @@ const Country: React.FC<CountryProps> = ({
           </TableBody>
         </Table>
       </TableContainer>
-      <Link to="/">
+      <Link
+        to="/"
+        style={{ textDecoration: "none" }}
+        data-testid="back_to_home_btn"
+      >
         <Button variant="contained">Back to Home</Button>
       </Link>
-      <Button variant="contained" onClick={fetchCapitalDetails}>
+      <Button
+        variant="contained"
+        data-testid="get-capital-weather"
+        onClick={fetchCapitalDetails}
+      >
         Capital Weather
       </Button>
     </Box>
