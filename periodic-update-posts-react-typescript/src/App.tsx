@@ -11,7 +11,7 @@ interface objPost {
   author: string;
 }
 
-export interface TablePorps {
+export interface TableProps {
   posts: objPost[];
 }
 
